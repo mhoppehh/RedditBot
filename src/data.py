@@ -1,4 +1,8 @@
 from collections import namedtuple
+import os
+from word_frequency import dic_score
+
+freq_bias = 7.00451340024
 
 def len_of_file(fname):
     with open(fname) as f:
@@ -15,11 +19,13 @@ def read_file(file):
             list_of_posts[i]=Post(name,url,score)
 
 
-file_name 	= 'bin\data.csv'
-file_len	=len_of_file(file_name)
+file_name= os.path.abspath('../bin/data.csv')
+file_len=len_of_file(file_name)
 
 Post = namedtuple("Post", "name url score")
 list_of_posts = [0] * len_of_file(file_name)
 
 read_file(file_name)
+
+print(dic_score('the', freq_bias))
 
