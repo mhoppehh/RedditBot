@@ -16,7 +16,6 @@ def dic_percent(in_word):
 			
             if f_word.lower() == in_word.lower():
                 return per
-
             pass
     return 0
 	
