@@ -10,7 +10,7 @@ def remove_punctuation(input):
         if char not in punctuations:
             no_punct = no_punct + char
     #print(input)
-    print(no_punct)
+    #print(no_punct)
     return no_punct
 
 reddit = praw.Reddit(client_id		=	'9j5EqtXSNSlfwA',
@@ -21,7 +21,6 @@ def poll_reddit():
     subreddit = reddit.subreddit("politics")
 
     f= open(file_path,"w+")
-    f.write("Title,URL,Score\n")
 
     for submission in subreddit.top('month'):
         f.write('{},{},{:d}\n'.format(remove_punctuation(submission.title),submission.url,submission.score))

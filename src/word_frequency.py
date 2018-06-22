@@ -18,7 +18,16 @@ def dic_percent(in_word):
                 return per
             pass
     return 0
+
+def adj_score(p_score, p_curve):
+    if p_score == 0:
+        return p_score
+    return pow(p_score, (1 / float(p_score)) * pow(10, -1 * p_curve))
 	
 def dic_score(in_word, bias):
     percent = float(dic_percent(in_word))
-    return (1 - (percent * bias))
+    return (1 - (adj_score(percent) * bias))
+    
+def dic_score_def(in_word, p_curve):
+    percent = float(dic_percent(in_word))
+    return adj_score(percent, p_curve) / adj_score(float(dic_percent('the')), p_curve)
